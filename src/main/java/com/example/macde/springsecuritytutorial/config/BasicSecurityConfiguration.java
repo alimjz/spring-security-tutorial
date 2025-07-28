@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyPairGenerator;
 
 @Configuration
 public class BasicSecurityConfiguration {
