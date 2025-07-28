@@ -91,7 +91,7 @@
             <resource>
                 <directory>config</directory>
                 <includes>
-                    <include>myconfig.properties</include>
+                    <include>application.properties</include>
                 </includes>
                 <targetPath>${basedir}/target/classes</targetPath>
             </resource>
