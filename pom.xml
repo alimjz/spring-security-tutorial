@@ -87,6 +87,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>config</directory>
+                <includes>
+                    <include>myconfig.properties</include>
+                </includes>
+                <targetPath>${basedir}/target/classes</targetPath>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
