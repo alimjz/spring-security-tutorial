@@ -6,6 +6,12 @@ pipeline {
         jdk 'jdk-17'          // Name as configured, e.g., 'jdk-17'
     }
 
+        environment {
+            IMAGE_NAME = "ali/springbootdemo"
+            CONTAINER_NAME = "springbootdemo"
+            JAR_FILE = "target/*.jar"
+        }
+
     stages {
         stage('Checkout') {
             steps {
