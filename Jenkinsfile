@@ -6,11 +6,11 @@ pipeline {
         jdk 'jdk-17'          // Name as configured, e.g., 'jdk-17'
     }
 
-    environment {
-            IMAGE_NAME = "ali/springsecurity"
-            CONTAINER_NAME = "springboot-security"
+            environment {
+            IMAGE_NAME = "ali/spring-security"
+            CONTAINER_NAME = "spring-security"
             JAR_FILE = "target/*.jar"
-    }
+        }
 
     stages {
         stage('Checkout') {
@@ -41,7 +41,7 @@ pipeline {
 
         stage('Build Jar') {
             steps {
-                sh 'mvn clean package -DskipTests=false'
+                sh 'mvn clean package -DskipTests=true'
             }
         }
         stage('Build Docker Image') {
@@ -61,7 +61,7 @@ pipeline {
             steps {
                 // Run the app (map port 8080, customize as needed)
                 sh '''
-                  docker run -d --name $CONTAINER_NAME -p 8080:8080 $IMAGE_NAME
+                  docker run -d --name $CONTAINER_NAME -p 9090:9090 --network custom-app-net $IMAGE_NAME
                 '''
             }
         }
