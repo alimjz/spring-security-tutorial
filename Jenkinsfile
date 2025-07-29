@@ -7,8 +7,8 @@ pipeline {
     }
 
     environment {
-            IMAGE_NAME = "ali/springbootdemo"
-            CONTAINER_NAME = "springbootdemo"
+            IMAGE_NAME = "ali/springsecurity"
+            CONTAINER_NAME = "springboot-security"
             JAR_FILE = "target/*.jar"
     }
 
