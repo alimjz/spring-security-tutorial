@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-security
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-security
+  template:
+    metadata:
+      labels:
+        app: spring-security
+    spec:
+      containers:
+        - name: spring-security
+          image: ali/spring-security  # Use $IMAGE_NAME if using imagePullPolicy: Never
+          ports:
+            - containerPort: 9090
+          imagePullPolicy: Never  # If using local image, tell k8s "don't pull"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-security
+spec:
+  type: NodePort
+  selector:
+    app: spring-security
+  ports:
+    - port: 9090
+      targetPort: 9090
